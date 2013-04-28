@@ -1,11 +1,11 @@
-var system   = require('system');
-var page = require('webpage').create();
+var system 	= require('system'),
+	page 	= require('webpage').create();
 
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
+var today 	= new Date(),
+	dd 		= today.getDate(),
+	mm 		= today.getMonth()+1,
+	yyyy 	= today.getFullYear();
 
-var yyyy = today.getFullYear();
 if (dd < 10) {
 	dd = '0' + dd;
 } 
@@ -21,7 +21,7 @@ site = 'http://' + system.args[1];
 page.viewportSize = { width: 1600, height: 1200 };
 
 page.open(site, function () {
-    page.render(site_simple + '-' + today + '.png');
+    page.render('screenshots/' + site_simple + '-' + today + '.png');
 	phantom.exit();
 });
 
