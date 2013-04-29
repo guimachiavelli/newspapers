@@ -1,19 +1,31 @@
 #!/bin/sh
 
-if [ $1 == "prod" ] ; then
-	FILE="/home/ubuntu/newspapers/sites"
-else
-	FILE="sites"
-fi
+while getopts ":p" opt; do
+  case $opt in
+    p)
+		FILE="/home/ubuntu/newspapers/sites"
+		FLAG="prod"
+      ;;
+    \?)
+		echo "invalid flag – the only valid flag is -p"
+		FILE="sites"
+		FLAG="dev"
+      ;;
+  esac
+done
 
+if (($# == 0)); then
+	FILE="sites"
+	FLAG="dev"
+fi
 
 OUT=$(awk '{ print $2 }' $FILE)
 
+echo $OUT
+
 for site in $OUT
 do
-	#python webkit2png -F -W 1280 -H 1024 -D screenshots -d $site
-	phantomjs screen.js $site $1
-	echo $site
+	phantomjs screen.js $site $FLAG
 done
 
 exit 1
