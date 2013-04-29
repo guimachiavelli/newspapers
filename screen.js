@@ -41,6 +41,7 @@ page.viewportSize = { width: 1600, height: 1200 };
 
 page.open(site, function () {
     page.render(dir + site_simple + '-' + today + '.png');
+	console.log(site_simple);
 	phantom.exit();
 });
 
