@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILE="sites"
+FILE="/home/ubuntu/newspapers/sites"
 OUT=$(awk '{ print $2 }' $FILE)
 
 for site in $OUT
