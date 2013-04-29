@@ -25,7 +25,7 @@ site = 'http://' + system.args[1];
 page.viewportSize = { width: 1600, height: 1200 };
 
 page.open(site, function () {
-    page.render('screenshots/' + site_simple + '-' + today + '.png');
+    page.render('/home/ubuntu/newspapers/screenshots/' + site_simple + '-' + today + '.png');
 	console.log(site_simple);
 	phantom.exit();
 });
