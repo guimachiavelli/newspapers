@@ -17,15 +17,9 @@ var site_simple = system.args[1],
 ;
 
 
-if (dd < 10) {
-	dd = '0' + dd;
-} 
-if (mm < 10) {
-	mm = '0' + mm;
-}
-if (hour < 10) {
-	hour = '0' + hour;
-}
+if (dd < 10) { dd = '0' + dd; } 
+if (mm < 10) { mm = '0' + mm; }
+if (hour < 10) { hour = '0' + hour; }
 
 if (server == 'prod') {
 	dir = pro_dir;
